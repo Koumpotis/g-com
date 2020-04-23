@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> GCommunicate </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+
+  <body>
+    <h1 class='title'> G-COM <br> <br></be></h1>
+
+    <!-- <button action='getUsers()' type='submit'>See the answers</button> -->
+<h1 class=title> The answers of the employee you requested:</h1>
+<script>
+        getUsers();
+      async function getUsers(){
+        const response = await fetch('/answers');
+        const data = await response.json();
+        let arrayOfData = Object.values(data)
+        console.log('this is data in answer', arrayOfData);
+
+        // data.then(createElements(arrayOfData))
+      // }
+        // console.log('this is response', response)
+        // function createElements(content){
+        for (let a = 1; a <= arrayOfData.length - 2; a++) {
+          const root = document.createElement('div');
+          root.classList.add('section');
+          const label = document.createElement('div');
+          label.classList.add('containerAnswers')
+          const content = document.createElement('div');
+          label.textContent = `Question ${a}:`
+          content.textContent = arrayOfData[a] // item.user1.answers.q1
+         label.append(content);
+          root.append(label);
+          document.body.append(root)
+        }
+      }
+
+</script>
+<footer>
+<form action='/redirectToMain' method='get'>
+  <button id='submitButton' class='button' formaction='index.html'>Click here if you want to go back to the Main Page</button>
+</form>
+</footer>
+</body>
+</html>

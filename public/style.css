@@ -1,0 +1,35 @@
+html{
+  background-color:lavender;
+}
+.container {
+  color: rgb(44, 44, 199);
+  font-family: Tahoma;
+  font-size: 18px;
+  font-style:oblique;
+  font-weight: 500;
+  border-radius: 5px;
+}
+.containerAnswers{
+  color:  rgb(44, 44, 199);
+  font-family: Tahoma;
+  font-size: 18px;
+  font-style:oblique;
+  font-weight: 500;
+  border-radius: 3px;
+  background-color: whitesmoke;
+  margin: 3px;
+}
+.button{
+  background-color: rgb(44, 44, 199);
+  color: lavender;
+  float: center;
+}
+.right {
+  float: right
+}
+.title {
+  color: darkblue;
+  font-size: 26px;
+  font-family: Tahoma;
+  font-weight: 700;
+}

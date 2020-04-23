@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> GCommunicate </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+
+  <body>
+    <div class='section'>
+    <div class="container">
+      <div class='notification'>
+    <h1 class='title'> G-COM <br> <br></be></h1>
+    <p> Fill in this questionnaire after your shift so your managers can better understand your needs. Help us help you! <br> <br></p>
+  </div>
+</div>
+</div>
+<form action='/redirectToMain' method='get'>
+  <button id='submitButton' class='button' formaction='index.html'>Click here if you want to go back to the Main Page</button>
+</form>
+
+<div class='section'>
+<div class="container">
+  <div class='notification'>
+
+    <form action='/formSubmission' method='post'>
+
+      <div class="field">
+        <div class="control">
+          <label for="answer"> What is your name?</label>
+          <input class="input" type="text" placeholder="George Pappadopoulos" name="name" id='answer'>
+      </div>
+      </div>
+
+          <div class="field">
+            <div class="control">
+              <label for="answer"> Is there anything you want to discuss about?</label>
+              <input class="input" type="text" placeholder="Work events, worries, hopes etc." name="q1" id='answer'>
+          </div>
+          </div>
+        <div class="field">
+          <div class="control">
+            <label for="answer"> Did you feel like you had the support you needed throughout your shift?</label>
+            <input class="input" type="text" placeholder="I felt like I did/ didn't have the support I needed because..." name="q2" id='answer'>
+          </div>
+        </div>
+
+          <div class="field">
+            <div class="control">
+
+            <label for="answer"> What do you hope is different tomorrow?</label>
+            <input class="input" type="text" placeholder="I hope tomorrow xyz is different, because..." name="q3" id='answer'>
+          </div>
+        </div>
+        <!-- second row of questions-->
+        <div class='columns'>
+          <div class='column'>
+            <label>How satisfied are you with your work today?<br></label>
+            <input type="radio" id="very much" name="satisfaction" value="very much">
+            <label for="very much">Very Much</label><br>
+
+            <input type="radio" id="Somewhat" name="satisfaction" value="somewhat">
+            <label for="somewhat">Somewhat Satisfied</label><br>
+
+            <input type="radio" id="neutral" name="satisfaction" value="neutral">
+            <label for="neutral">Neutral</label><br>
+
+            <input type="radio" id="dissatisfied" name="satisfaction" value="dissatisfied">
+            <label for="dissatisfied">Dissatisfied</label><br>
+
+            <input type="radio" id="no answer" name="satisfaction" value="no answer">
+            <label for="no answer">I would prefer not to answer</label><br>
+
+          </div>
+
+        </div>
+            <button type='submit' id='submitButton' class='button'>Save and submit your answers</button>
+
+    </form>
+  </div>
+  </div>
+  </div>
+    <script>
+      // getUsers();
+     async function getUsers(){
+        const response = await fetch('/authentication');
+        const data = await response.json();
+
+        for (item of data) {
+          const root = document.createElement('div');
+          const username = document.createElement('div');
+          username.textContent = data // item.user1.answers.q1
+          root.append(username);
+          document.body.append(root)
+        }
+      }
+
+</script>
+</body>
+  </head>
+</html>
